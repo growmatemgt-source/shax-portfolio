@@ -306,3 +306,40 @@ Sent from the SHAX portfolio.`
     });
 
 });
+/* =========================================================
+   SHAX — WHATSAPP INQUIRY FORM
+   ========================================================= */
+
+const inquiryForm = document.getElementById("inquiryForm");
+
+if (inquiryForm) {
+  inquiryForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("clientName").value.trim();
+    const email = document.getElementById("clientEmail").value.trim();
+    const project = document.getElementById("projectType").value;
+    const message = document.getElementById("projectMessage").value.trim();
+
+    const whatsappNumber = "923393125143";
+
+    const whatsappMessage =
+`Hello SHAX,
+
+I'd like to discuss a project.
+
+Name: ${name}
+Email: ${email}
+Project Type: ${project}
+
+Project Details:
+${message}
+
+Sent from SHAX Portfolio.`;
+
+    const whatsappURL =
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+}
